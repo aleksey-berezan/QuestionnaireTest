@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201612200541107_RenameAnswer.Designer.cs">
       <DependentUpon>201612200541107_RenameAnswer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.cs" />
+    <Compile Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.Designer.cs">
+      <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChosenAnswer.cs" />
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\BaseEntity.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612200541107_RenameAnswer.resx">
       <DependentUpon>201612200541107_RenameAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.resx">
+      <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
