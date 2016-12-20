@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.Designer.cs">
       <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612200555365_Add-EntityState.cs" />
+    <Compile Include="Migrations\201612200555365_Add-EntityState.Designer.cs">
+      <DependentUpon>201612200555365_Add-EntityState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChosenAnswer.cs" />
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\BaseEntity.cs" />
@@ -76,6 +80,7 @@
       <DependentUpon>201612200450519_InitialSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\EntityState.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Questionnaire.cs" />
     <Compile Include="Model\QuestionnaireSession.cs" />
@@ -102,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.resx">
       <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612200555365_Add-EntityState.resx">
+      <DependentUpon>201612200555365_Add-EntityState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

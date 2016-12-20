@@ -8,6 +8,8 @@ namespace Questionnaire.DomainModel.Model
         [Required]
         public string Description { get; set; }
 
+        public EntityState EntityState { get; set; }
+
         public virtual List<Section> Sections { get; set; }
 
         protected override IEnumerable<BaseEvolvableEntity> GetImmediateChildren()
