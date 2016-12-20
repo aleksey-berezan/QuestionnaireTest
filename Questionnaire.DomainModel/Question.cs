@@ -8,7 +8,7 @@ namespace Questionnaire.DomainModel
         [Required]
         public string Description { get; set; }
 
-        public virtual List<Question> Choices { get; set; }
+        public virtual List<Choice> Choices { get; set; }
 
         public int SectionId { get; set; }
         public virtual Section Section { get; set; }

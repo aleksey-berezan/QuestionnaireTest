@@ -12,8 +12,8 @@ namespace Questionnaire.DomainModel
         public int QuestionId { get; set; }
         public virtual Question Question { get; set; }
 
-        public int NavigateToSectionId { get; set; }
-        public Section NavigateToSection { get; set; }
+        public int? NavigateToSectionId { get; set; }
+        public virtual Section NavigateToSection { get; set; }
 
         public int Score { get; set; }
 

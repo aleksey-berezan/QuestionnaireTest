@@ -11,10 +11,10 @@ namespace Questionnaire.DomainModel
         public virtual List<Question> Questions { get; set; }
 
         public int QuestionnaireId { get; set; }
-        public Questionnaire Questionnaire { get; set; }
+        public virtual Questionnaire Questionnaire { get; set; }
 
-        public int NextSectionId { get; set; }
-        public Section NextSection { get; set; }
+        public int? NextSectionId { get; set; }
+        public virtual Section NextSection { get; set; }
 
         protected override IEnumerable<EntityBase> GetImmediateChildren()
         {
