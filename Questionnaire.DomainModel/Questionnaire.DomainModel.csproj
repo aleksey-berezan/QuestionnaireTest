@@ -51,34 +51,14 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="EntityConfigurations\SelectedAnswerConfiguration.cs" />
-    <Compile Include="Migrations\201612200511393_Add-User.cs" />
-    <Compile Include="Migrations\201612200511393_Add-User.Designer.cs">
-      <DependentUpon>201612200511393_Add-User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200531080_Add-QuestionnaireSessionAndAnswer.cs" />
-    <Compile Include="Migrations\201612200531080_Add-QuestionnaireSessionAndAnswer.Designer.cs">
-      <DependentUpon>201612200531080_Add-QuestionnaireSessionAndAnswer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200541107_RenameAnswer.cs" />
-    <Compile Include="Migrations\201612200541107_RenameAnswer.Designer.cs">
-      <DependentUpon>201612200541107_RenameAnswer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.cs" />
-    <Compile Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.Designer.cs">
-      <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612200555365_Add-EntityState.cs" />
-    <Compile Include="Migrations\201612200555365_Add-EntityState.Designer.cs">
-      <DependentUpon>201612200555365_Add-EntityState.cs</DependentUpon>
+    <Compile Include="Migrations\201612200607034_InitialSetup.cs" />
+    <Compile Include="Migrations\201612200607034_InitialSetup.Designer.cs">
+      <DependentUpon>201612200607034_InitialSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ChosenAnswer.cs" />
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\BaseEntity.cs" />
     <Compile Include="Model\BaseEvolvableEntity.cs" />
-    <Compile Include="Migrations\201612200450519_InitialSetup.cs" />
-    <Compile Include="Migrations\201612200450519_InitialSetup.Designer.cs">
-      <DependentUpon>201612200450519_InitialSetup.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\EntityState.cs" />
     <Compile Include="Model\Question.cs" />
@@ -93,23 +73,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612200450519_InitialSetup.resx">
-      <DependentUpon>201612200450519_InitialSetup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200511393_Add-User.resx">
-      <DependentUpon>201612200511393_Add-User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200531080_Add-QuestionnaireSessionAndAnswer.resx">
-      <DependentUpon>201612200531080_Add-QuestionnaireSessionAndAnswer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200541107_RenameAnswer.resx">
-      <DependentUpon>201612200541107_RenameAnswer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200545223_Add-UserToQuestionnaireSession.resx">
-      <DependentUpon>201612200545223_Add-UserToQuestionnaireSession.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612200555365_Add-EntityState.resx">
-      <DependentUpon>201612200555365_Add-EntityState.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612200607034_InitialSetup.resx">
+      <DependentUpon>201612200607034_InitialSetup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

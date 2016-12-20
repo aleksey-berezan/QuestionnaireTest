@@ -20,7 +20,7 @@ namespace Questionnaire.DomainModel.Model
 
         public virtual Question CurrentQuestion { get; set; }
 
-        public virtual List<ChosenAnswer> Answers { get; set; }
+        public virtual List<SelectedAnswer> Answers { get; set; }
 
         public int UserId { get; set; }
         public virtual User User { get; set; }

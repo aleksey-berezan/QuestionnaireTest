@@ -3,12 +3,12 @@ using Questionnaire.DomainModel.Model;
 
 namespace Questionnaire.DomainModel.EntityConfigurations
 {
-    public class SelectedAnswerConfiguration : EntityTypeConfiguration<ChosenAnswer>
+    public class SelectedAnswerConfiguration : EntityTypeConfiguration<SelectedAnswer>
     {
         public SelectedAnswerConfiguration()
         {
             HasRequired(a => a.QuestionnaireSession)
-                .WithOptional()
+                .WithMany(a => a.Answers)
                 .WillCascadeOnDelete(false);
 
             HasRequired(a => a.Choice)

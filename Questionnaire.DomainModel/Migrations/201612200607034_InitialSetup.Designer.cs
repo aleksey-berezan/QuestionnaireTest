@@ -7,13 +7,13 @@ namespace Questionnaire.DomainModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RenameAnswer : IMigrationMetadata
+    public sealed partial class InitialSetup : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameAnswer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612200541107_RenameAnswer"; }
+            get { return "201612200607034_InitialSetup"; }
         }
         
         string IMigrationMetadata.Source
