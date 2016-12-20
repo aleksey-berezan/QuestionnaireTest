@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Questionnaire.DomainModel
+namespace Questionnaire.DomainModel.Model
 {
-    public class Questionnaire : EntityBase
+    public class Questionnaire : BaseEvolvableEntity
     {
         [Required]
         public string Description { get; set; }
 
         public virtual List<Section> Sections { get; set; }
 
-        protected override IEnumerable<EntityBase> GetImmediateChildren()
+        protected override IEnumerable<BaseEvolvableEntity> GetImmediateChildren()
         {
             return Sections;
         }
 
-        protected override EntityBase CloneInternal()
+        protected override BaseEvolvableEntity CloneInternal()
         {
             return new Questionnaire
             {

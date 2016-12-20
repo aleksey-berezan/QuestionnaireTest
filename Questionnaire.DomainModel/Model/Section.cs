@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Questionnaire.DomainModel
+namespace Questionnaire.DomainModel.Model
 {
-    public class Section : EntityBase
+    public class Section : BaseEvolvableEntity
     {
         [Required]
         public string Description { get; set; }
@@ -16,12 +16,12 @@ namespace Questionnaire.DomainModel
         public int? NextSectionId { get; set; }
         public virtual Section NextSection { get; set; }
 
-        protected override IEnumerable<EntityBase> GetImmediateChildren()
+        protected override IEnumerable<BaseEvolvableEntity> GetImmediateChildren()
         {
             return Questions;
         }
 
-        protected override EntityBase CloneInternal()
+        protected override BaseEvolvableEntity CloneInternal()
         {
             return new Section
             {

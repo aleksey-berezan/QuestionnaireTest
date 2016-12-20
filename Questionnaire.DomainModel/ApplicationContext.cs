@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using Questionnaire.DomainModel.EntityConfigurations;
+using Questionnaire.DomainModel.Model;
 
 namespace Questionnaire.DomainModel
 {
@@ -9,6 +11,15 @@ namespace Questionnaire.DomainModel
         {
         }
 
-        public DbSet<Questionnaire> Questionnaires { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new SelectedAnswerConfiguration());
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<Model.Questionnaire> Questionnaires { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<QuestionnaireSession> QuestionnaireSessions { get; set; }
     }
 }

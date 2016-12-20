@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace Questionnaire.DomainModel
+namespace Questionnaire.DomainModel.Model
 {
-    public class Choice : EntityBase
+    public class Choice : BaseEvolvableEntity
     {
         [Required]
         public string Description { get; set; }
@@ -17,12 +17,12 @@ namespace Questionnaire.DomainModel
 
         public int Score { get; set; }
 
-        protected override IEnumerable<EntityBase> GetImmediateChildren()
+        protected override IEnumerable<BaseEvolvableEntity> GetImmediateChildren()
         {
-            return Enumerable.Empty<EntityBase>();
+            return Enumerable.Empty<BaseEvolvableEntity>();
         }
 
-        protected override EntityBase CloneInternal()
+        protected override BaseEvolvableEntity CloneInternal()
         {
             return new Choice
             {

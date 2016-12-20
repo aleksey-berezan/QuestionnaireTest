@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace Questionnaire.DomainModel
+namespace Questionnaire.DomainModel.Model
 {
-    public abstract class EntityBase
+    public abstract class BaseEvolvableEntity : BaseEntity
     {
-        [Required]
-        public int Id { get; set; } // surrogate id
-
         public int EntityId { get; set; }
 
         public Guid Version { get; set; }
@@ -27,11 +23,11 @@ namespace Questionnaire.DomainModel
             }
         }
 
-        protected abstract IEnumerable<EntityBase> GetImmediateChildren();
+        protected abstract IEnumerable<BaseEvolvableEntity> GetImmediateChildren();
 
-        protected abstract EntityBase CloneInternal();
+        protected abstract BaseEvolvableEntity CloneInternal();
 
-        public EntityBase Clone()
+        public BaseEvolvableEntity Clone()
         {
             var clone = CloneInternal();
             clone.EntityId = EntityId;
@@ -40,7 +36,7 @@ namespace Questionnaire.DomainModel
         }
 
         protected List<TEntity> CloneCollection<TEntity>(IEnumerable<TEntity> list)
-            where TEntity : EntityBase
+            where TEntity : BaseEvolvableEntity
         {
             return list.Select(x => x.Clone())
                 .Cast<TEntity>()
