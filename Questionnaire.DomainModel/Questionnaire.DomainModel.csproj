@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationContext.cs" />
     <Compile Include="Choice.cs" />
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Questionnaire.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
