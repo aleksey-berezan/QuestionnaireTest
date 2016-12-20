@@ -3,7 +3,7 @@ using Questionnaire.DomainModel.Model;
 
 namespace Questionnaire.DomainModel.EntityConfigurations
 {
-    public class SelectedAnswerConfiguration : EntityTypeConfiguration<SelectedAnswer>
+    public class SelectedAnswerConfiguration : EntityTypeConfiguration<ChosenAnswer>
     {
         public SelectedAnswerConfiguration()
         {

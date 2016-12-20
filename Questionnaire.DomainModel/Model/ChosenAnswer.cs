@@ -1,6 +1,6 @@
 ﻿namespace Questionnaire.DomainModel.Model
 {
-    public class SelectedAnswer : BaseEntity
+    public class ChosenAnswer : BaseEntity
     {
         public int QuestionnaireSessionId { get; set; }
         public virtual QuestionnaireSession QuestionnaireSession { get; set; }
