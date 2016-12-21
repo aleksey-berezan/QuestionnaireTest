@@ -2,18 +2,19 @@
 using Questionnaire.DomainModel.EntityConfigurations;
 using Questionnaire.DomainModel.Model;
 
-namespace Questionnaire.DomainModel
+namespace Questionnaire.DomainModel.Persistence
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationContext()
+        public ApplicationDbContext()
             : base("DefaultConnection")
         {
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new SelectedAnswerConfiguration());
+            modelBuilder.Configurations.Add(new AnswerChoiceConfiguration());
+            modelBuilder.Configurations.Add(new AnswerConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

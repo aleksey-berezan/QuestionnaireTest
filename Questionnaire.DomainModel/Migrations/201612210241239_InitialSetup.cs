@@ -89,21 +89,32 @@ namespace Questionnaire.DomainModel.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.SelectedAnswers",
+                "dbo.Answers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        QuestionnaireSessionId = c.Int(nullable: false),
+                        QuestionId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
+                .ForeignKey("dbo.QuestionnaireSessions", t => t.QuestionnaireSessionId)
+                .Index(t => t.QuestionnaireSessionId)
+                .Index(t => t.QuestionId);
+            
+            CreateTable(
+                "dbo.AnswerChoices",
                 c => new
                     {
                         Id = c.Int(nullable: false),
-                        QuestionnaireSessionId = c.Int(nullable: false),
-                        QuestionId = c.Int(nullable: false),
                         ChoiceId = c.Int(nullable: false),
+                        AnswerId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Answers", t => t.AnswerId, cascadeDelete: true)
                 .ForeignKey("dbo.Choices", t => t.Id)
-                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
-                .ForeignKey("dbo.QuestionnaireSessions", t => t.QuestionnaireSessionId)
                 .Index(t => t.Id)
-                .Index(t => t.QuestionnaireSessionId)
-                .Index(t => t.QuestionId);
+                .Index(t => t.AnswerId);
             
             CreateTable(
                 "dbo.Users",
@@ -122,17 +133,19 @@ namespace Questionnaire.DomainModel.Migrations
             DropForeignKey("dbo.QuestionnaireSessions", "UserId", "dbo.Users");
             DropForeignKey("dbo.QuestionnaireSessions", "QuestionnaireId", "dbo.Questionnaires");
             DropForeignKey("dbo.QuestionnaireSessions", "CurrentQuestionId", "dbo.Questions");
-            DropForeignKey("dbo.SelectedAnswers", "QuestionnaireSessionId", "dbo.QuestionnaireSessions");
-            DropForeignKey("dbo.SelectedAnswers", "QuestionId", "dbo.Questions");
-            DropForeignKey("dbo.SelectedAnswers", "Id", "dbo.Choices");
+            DropForeignKey("dbo.Answers", "QuestionnaireSessionId", "dbo.QuestionnaireSessions");
+            DropForeignKey("dbo.Answers", "QuestionId", "dbo.Questions");
+            DropForeignKey("dbo.AnswerChoices", "Id", "dbo.Choices");
+            DropForeignKey("dbo.AnswerChoices", "AnswerId", "dbo.Answers");
             DropForeignKey("dbo.Questions", "SectionId", "dbo.Sections");
             DropForeignKey("dbo.Choices", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Choices", "NavigateToSectionId", "dbo.Sections");
             DropForeignKey("dbo.Sections", "QuestionnaireId", "dbo.Questionnaires");
             DropForeignKey("dbo.Sections", "NextSectionId", "dbo.Sections");
-            DropIndex("dbo.SelectedAnswers", new[] { "QuestionId" });
-            DropIndex("dbo.SelectedAnswers", new[] { "QuestionnaireSessionId" });
-            DropIndex("dbo.SelectedAnswers", new[] { "Id" });
+            DropIndex("dbo.AnswerChoices", new[] { "AnswerId" });
+            DropIndex("dbo.AnswerChoices", new[] { "Id" });
+            DropIndex("dbo.Answers", new[] { "QuestionId" });
+            DropIndex("dbo.Answers", new[] { "QuestionnaireSessionId" });
             DropIndex("dbo.QuestionnaireSessions", new[] { "UserId" });
             DropIndex("dbo.QuestionnaireSessions", new[] { "CurrentQuestionId" });
             DropIndex("dbo.QuestionnaireSessions", new[] { "QuestionnaireId" });
@@ -142,7 +155,8 @@ namespace Questionnaire.DomainModel.Migrations
             DropIndex("dbo.Sections", new[] { "NextSectionId" });
             DropIndex("dbo.Sections", new[] { "QuestionnaireId" });
             DropTable("dbo.Users");
-            DropTable("dbo.SelectedAnswers");
+            DropTable("dbo.AnswerChoices");
+            DropTable("dbo.Answers");
             DropTable("dbo.QuestionnaireSessions");
             DropTable("dbo.Choices");
             DropTable("dbo.Questions");
